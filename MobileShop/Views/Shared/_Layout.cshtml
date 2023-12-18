@@ -1,0 +1,78 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Shop</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c9d06a3481.js"></script>
+    <link href="~/User/css/LayoutCSS.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="header">
+        <div class="header-box">
+            <div class="brand">
+                <h2><a asp-controller="Home" asp-action="Index">Mobile Shop </a></h2>
+            </div>
+            <div class="search-box">
+                <form asp-controller="Search" asp-action="Index" method="post">
+                    <input type="text" name="keyword" placeholder="Bạn cần tìm gì?">
+                    <button type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </div>
+            <div class="cart">
+                <i class="fas fa-shopping-cart"></i>
+                <a asp-controller="ShoppingCart" asp-action="Index">
+                    <span>Giỏ hàng</span>
+                </a>
+            </div>
+            <div class="hotline">
+                <i class="fas fa-phone-alt"></i>
+                <span> Hotline: 2023.0315</span>
+            </div>
+        </div>
+    </div>
+
+    @RenderBody()
+
+    <div class="footer">
+        <div class="footer-box">
+            <div class="footer-about">
+                <ul>
+                    <li><a href="#">Giới thiệu công ty</a></li>
+                    <li><a href="#">Tiêu chí bán hàng</a></li>
+                    <li><a href="#">Đối tác chiến lược</a></li>
+                    <li><a href="#">Hệ thống trung tâm</a></li>
+                    <li><a href="#">Tuyển dụng</a></li>
+                </ul>
+            </div>
+            <div class="footer-support">
+                <ul>
+                    <li><a href="#">Hướng dẫn mua hàng</a></li>
+                    <li><a href="#">Hình thức thanh toán</a></li>
+                    <li><a href="#">Quy định đổi sản phẩm</a></li>
+                    <li><a href="#">Tra cứu thẻ thành viên</a></li>
+                    <li><a href="#">Bảo hành & hỗ trợ</a></li>
+                </ul>
+            </div>
+            <div class="footer-policy">
+                <ul>
+                    <li><a href="#">Giao nhận sản phẩm</a></li>
+                    <li><a href="#">Dùng thử sản phẩm</a></li>
+                    <li><a href="#">Khu vực giao nhận</a></li>
+                    <li><a href="#">Chính sách thẻ khách hàng</a></li>
+                    <li><a href="#">Trả góp</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h4>Kết nối với chúng tôi</h4>
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter-square"></i></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

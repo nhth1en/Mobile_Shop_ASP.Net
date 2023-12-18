@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/User/css/Product/DetailCSS.css" rel="stylesheet" />
+
+<div class="product-detail">
+    <div class="product-detail__title">
+        <h2>Điện thoại @ViewBag.Product.Product_Name</h2>
+    </div>
+    <div class="product-detail__content">
+        <div class="product-image">
+            <img src="~/images/products/@ViewBag.Product.Product_ImageThumbnail" alt="image">
+        </div>
+        <div class="product-xxx">
+            <h2 class="product-price">@ViewBag.Product.Product_Price.ToString("#,###")</h2>
+            <div class="product-info">
+                <table>
+                    <tr>
+                        <th class="product-info__label" colspan="2">Hệ điều hành - CPU</th>
+                    </tr>
+                    <tr>
+                        <td>Hệ điều hành:</td>
+                        <td>@ViewBag.Product.Product_OperatingSystem</td>
+                    </tr>
+                    <tr>
+                        <td>Chipset(Hãng SX CPU):</td>
+                        <td>@ViewBag.Product.Product_Chipset</td>
+                    </tr>
+                    <tr>
+                        <td>Tốc độ CPU:</td>
+                        <td>@ViewBag.Product.Product_CPUSpeed</td>
+                    </tr>
+                    <tr>
+                        <td>Chip đồ họa (GPU):</td>
+                        <td>@ViewBag.Product.Product_GPU</td>
+                    </tr>
+                    <tr>
+                        <th class="product-info__label" colspan="2">Màn hình</th>
+                    </tr>
+                    <tr>
+                        <td>Độ phân giải:</td>
+                        <td>@ViewBag.Product.Product_ScreenResolution</td>
+                    </tr>
+                    <tr>
+                        <td>Màn hình rộng:</td>
+                        <td>@ViewBag.Product.Product_ScreenWidth</td>
+                    </tr>
+                    <tr>
+                        <th class="product-info__label" colspan="2">Bộ nhớ & lưu trữ</th>
+                    </tr>
+                    <tr>
+                        <td>RAM:</td>
+                        <td>@ViewBag.Product.Product_RAM</td>
+                    </tr>
+                    <tr>
+                        <td>Bộ nhớ trong:</td>
+                        <td>@ViewBag.Product.Product_ROM</td>
+                    </tr>
+                    <tr>
+                        <td>Hỗ trợ thẻ nhớ:</td>
+                        @if (ViewBag.Product.Product_SDCardSupport == true)
+                        {
+                            <td>Có</td>
+                        }
+                        else
+                        {
+                            <td>Không</td>
+                        }
+                    </tr>
+                    <tr>
+                        <td>Thẻ nhớ ngoài:</td>
+                        <td>@ViewBag.Product.Product_SDCard</td>
+                    </tr>
+                    <tr>
+                        <th class="product-info__label" colspan="2">Camera</th>
+                    </tr>
+                    <tr>
+                        <td>Camera trước:</td>
+                        <td>@ViewBag.Product.Product_FrontCamera</td>
+                    </tr>
+                    <tr>
+                        <td>Camera sau:</td>
+                        <td>@ViewBag.Product.Product_RearCamera</td>
+                    </tr>
+                </table>
+            </div>
+            @if (ViewBag.Product.Product_InStock == true)
+            {
+                <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-id="@ViewBag.Product.Product_Id">THÊM VÀO GIỎ HÀNG</a>
+            }
+            else
+            {
+                <a style="background-color: #f76464;" disabled="disable">SẢN PHẨM TẠM HẾT</a>
+            }
+        </div>
+        <div class="product-related">
+            <h2>Các sản phẩm khác</h2>
+            <ul>
+                @foreach (var p in Model)
+                {
+                    <li>
+                        <a asp-action="Detail" asp-route-id="@p.Product_Id">
+                            <img src="~/images/products/@p.Product_ImageThumbnail" alt="image">
+                        </a>
+                        <span>@p.Product_Name</span>
+                    </li>
+                }
+            </ul>
+        </div>
+        <div class="product-description">
+            <h2>Mô tả</h2>
+            <p>@ViewBag.Product.Product_Description</p>
+        </div>
+    </div>
+</div>
+

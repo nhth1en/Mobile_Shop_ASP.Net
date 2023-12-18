@@ -1,0 +1,52 @@
+﻿@model Banner
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Admin/css/BannerManagement/IndexCSS.css" rel="stylesheet" />
+<div class="wrapper-content">
+    <h2>QUẢN LÝ BANNER</h2>
+    <div class="box">
+        <div>
+            <h3>Danh sách banner</h3>
+            <table class="table-detail">
+                <tr>
+                    <th>#</th>
+                    <th>Banner</th>
+                    <th>Hành động</th>
+                </tr>
+                <tr>
+                    @{ int i = 1; }
+                    @foreach (var b in ViewBag.Banners)
+                    {
+                        <td>@i</td>
+                        <td>
+                            <img src="~/images/banners/@b.Banner_Image" alt="image" style="width: 70%;" />
+                        </td>
+                        <td>
+                            <form asp-action="Delete" asp-route-id="@b.Banner_Id" method="POST">
+                                <button type="submit" class="action-delete" onclick="return confirm('Bạn có chắc chắn muốn xóa banner này ?');">
+                                    <i class="fas fa-trash-alt"></i>
+                                    Xóa
+                                </button>
+                            </form>
+                        </td>
+                        i++;
+                    }
+                </tr>
+            </table>
+        </div>
+        <div>
+            <h3>Thêm banner</h3>
+            @if (TempData["NotImage"] != null)
+            {
+                <p style="color: red; margin-bottom: 5px;">@TempData["NotImage"]</p>
+            }
+            <form class="form-add" asp-action="Add" method="post" enctype="multipart/form-data">
+                <input type="file" asp-for="Banner_Image" required />
+                <button type="submit">Thêm</button>
+            </form>
+        </div>
+    </div>
+</div>
+

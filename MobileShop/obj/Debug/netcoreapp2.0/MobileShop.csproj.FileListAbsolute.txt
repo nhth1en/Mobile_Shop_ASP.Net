@@ -1,0 +1,11 @@
+E:\MobileShop\MobileShop\bin\Debug\netcoreapp2.0\MobileShop.deps.json
+E:\MobileShop\MobileShop\bin\Debug\netcoreapp2.0\MobileShop.runtimeconfig.json
+E:\MobileShop\MobileShop\bin\Debug\netcoreapp2.0\MobileShop.runtimeconfig.dev.json
+E:\MobileShop\MobileShop\bin\Debug\netcoreapp2.0\MobileShop.dll
+E:\MobileShop\MobileShop\bin\Debug\netcoreapp2.0\MobileShop.pdb
+E:\MobileShop\MobileShop\obj\Debug\netcoreapp2.0\MobileShop.csprojAssemblyReference.cache
+E:\MobileShop\MobileShop\obj\Debug\netcoreapp2.0\MobileShop.csproj.CoreCompileInputs.cache
+E:\MobileShop\MobileShop\obj\Debug\netcoreapp2.0\MobileShop.AssemblyInfoInputs.cache
+E:\MobileShop\MobileShop\obj\Debug\netcoreapp2.0\MobileShop.AssemblyInfo.cs
+E:\MobileShop\MobileShop\obj\Debug\netcoreapp2.0\MobileShop.dll
+E:\MobileShop\MobileShop\obj\Debug\netcoreapp2.0\MobileShop.pdb

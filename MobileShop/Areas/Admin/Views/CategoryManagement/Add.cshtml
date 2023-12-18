@@ -1,0 +1,25 @@
+﻿@model Category
+@{
+    ViewData["Title"] = "Add";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Admin/css/CategoryManagement/AddCSS.css" rel="stylesheet" />
+<div class="wrapper-content">
+    <form class="form" asp-action="Add" method="POST">
+        <h2>THÊM LOẠI SẢN PHẨM</h2>
+        <div class="input-group">
+            <span asp-for="Category_Name">Tên loại sản phẩm</span>
+            <input asp-for="Category_Name" type="text">
+        </div>
+        <div class="input-group">
+            <span asp-for="Category_Description">Mô tả</span>
+            <input asp-for="Category_Description" type="text">
+        </div>
+        <div class="btn">
+            <button type="reset" onclick="location.href='./'">HỦY</button>
+            <button type="submit">LƯU LẠI</button>
+        </div>
+    </form>
+</div>
+

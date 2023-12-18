@@ -1,0 +1,166 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f5f5f5;
+    min-width: 1346px;
+}
+
+
+/* BEGIN HEADER CSS */
+.header {
+    width: 100%;
+    height: 88px;
+    background-color: #2ecc71;
+}
+
+.header-box {
+    width: 1346px;
+    margin: 0 auto;
+    height: 88px;
+    line-height: 88px;
+}
+
+.brand {
+    float: left;
+    width: 256px;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.brand a {
+    text-decoration: none;
+    color: white;
+}
+
+.search-box {
+    float: left;
+    width: 690px;
+}
+
+    .search-box input {
+        height: 40px;
+        width: 660px;
+        border: none;
+        outline: none;
+        padding: 0 10px;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+    }
+
+    .search-box button {
+        height: 40px;
+        width: 40px;
+        background-color: #ffa800;
+        outline: none;
+        border: none;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+        margin-left: -40px;
+        cursor: pointer;
+    }
+
+.cart {
+    float: left;
+    width: 200px;
+    color: white;
+}
+
+    .cart a:hover {
+        color: #e6e6e6;
+    }
+
+    .cart a {
+        text-decoration: none;
+        color: white;
+        font-weight: bold;
+    }
+
+    .cart i {
+        font-size: 20px;
+    }
+
+.user {
+    float: left;
+    width: 200px;
+    color: white;
+    font-weight: bold;
+}
+
+    .user a {
+        color: white;
+        text-decoration: none;
+    }
+
+        .user a:hover {
+            text-decoration: none;
+            color: #e6e6e6;
+        }
+/* END HEADER CSS */
+/* BEGIN FOOTER CSS */
+.footer {
+    display: flex;
+    width: 100%;
+    height: auto;
+    background-color: #fff;
+}
+
+.footer-box {
+    width: 1346px;
+    padding: 10px;
+    margin: 0 auto;
+}
+
+.footer-about {
+    float: left;
+    width: 25%;
+}
+
+.footer-support {
+    float: left;
+    width: 25%;
+}
+
+.footer-policy {
+    float: left;
+    width: 25%;
+}
+
+.footer-social {
+    float: left;
+    width: 25%;
+}
+
+.footer-about ul li, .footer-support ul li, .footer-policy ul li {
+    list-style: none;
+    padding: 5px;
+}
+
+    .footer-about ul li a, .footer-support ul li a, .footer-policy ul li a {
+        text-decoration: none;
+        color: #000;
+    }
+
+        .footer-about ul li a:hover, .footer-support ul li a:hover, .footer-policy ul li a:hover {
+            text-decoration: underline;
+        }
+
+.footer-social a {
+    color: #000;
+}
+
+    .footer-social a:hover i {
+        font-size: 28px;
+        padding: 5px;
+        transition: 0.4s;
+    }
+
+.footer-social i {
+    font-size: 30px;
+    padding: 5px;
+}

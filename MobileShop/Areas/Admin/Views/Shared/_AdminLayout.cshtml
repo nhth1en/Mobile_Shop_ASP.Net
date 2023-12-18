@@ -1,0 +1,100 @@
+﻿@using Microsoft.AspNetCore.Http
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Shop - Admin</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/c9d06a3481.js"></script>
+    <link href="~/Admin/css/LayoutCSS.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <div class="menu">
+            <div class="brand">
+                <h2>Admin</h2>
+            </div>
+            <hr>
+            <ul>
+                <li>
+                    <a asp-controller="Dashboard" asp-action="Index">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Bảng điều khiển</span>
+                    </a>
+                </li>
+                <hr>
+                <h5>SẢN PHẨM</h5>
+                <li>
+                    <a asp-controller="ProductManagement" asp-action="Index">
+                        <i class="fas fa-edit"></i>
+                        <span>Quản lý sản phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="ProductManagement" asp-action="Add">
+                        <i class="fas fa-plus"></i>
+                        <span>Thêm sản phẩm</span>
+                    </a>
+                </li>
+                <h5>LOẠI SẢN PHẨM</h5>
+                <li>
+                    <a asp-controller="CategoryManagement" asp-action="Index">
+                        <i class="fas fa-edit"></i>
+                        <span>Quản lý loại sản phẩm</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="CategoryManagement" asp-action="Add">
+                        <i class="fas fa-plus"></i>
+                        <span>Thêm loại sản phẩm</span>
+                    </a>
+                </li>
+                <h5>ĐƠN HÀNG</h5>
+                <li>
+                    <a asp-controller="OrderManagement" asp-action="Index">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span>Quản lý đơn hàng</span>
+                    </a>
+                </li>
+                <h5>TÀI KHOẢN</h5>
+                <li>
+                    <a asp-controller="AccountManagement" asp-action="Index">
+                        <i class="fas fa-user-cog"></i>
+                        <span>Quản lý người dùng</span>
+                    </a>
+                </li>
+                <h5>CÔNG CỤ KHÁC</h5>
+                <li>
+                    <a asp-controller="Analytics" asp-action="Index">
+                        <i class="fas fa-chart-line"></i>
+                        <span>Thống kê</span>
+                    </a>
+                </li>
+                <li>
+                    <a asp-controller="BannerManagement" asp-action="Index">
+                        <i class="fas fa-ad"></i>
+                        <span>Quản lý banner</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <div class="navbar">
+            <div class="user">
+                <i class="far fa-envelope"></i>
+                <a class="user-info" href="#">
+                    <img src="~/assets/images/avatar.png" alt="avatar" />
+                    <span>Xin chào, <b>@ViewBag.FullName</b></span>
+                </a>
+                <form class="user-logout" asp-controller="Login" asp-action="Logout" method="POST">
+                    <button type="submit">Đăng xuất</button>
+                </form>            
+            </div>
+        </div>
+
+        @RenderBody()
+    </div>
+</body>
+</html>
+
+

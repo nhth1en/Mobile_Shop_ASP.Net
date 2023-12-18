@@ -1,0 +1,65 @@
+﻿@model Account
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<h2>Register</h2>
+<div class="form-horizontal">
+    <form asp-controller="Admin" asp-action="Register" method="post">
+        @if (ViewBag.RegisterSuccess != null)
+        {
+            <div class="form-control">
+                <div class="col-md-10">@ViewBag.RegisterSuccess</div>
+            </div>
+        }
+        <div asp-validation-summary="All" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="Account_Email" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Account_Email" class="form-control" />
+                <span asp-validation-for="Account_Email" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Account_FullName" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Account_FullName" class="form-control" />
+                <span asp-validation-for="Account_FullName" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Account_Password" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Account_Password" class="form-control" />
+                <span asp-validation-for="Account_Password" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Account_ConfirmPassword" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Account_ConfirmPassword" class="form-control" />
+                <span asp-validation-for="Account_ConfirmPassword" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Account_PhoneNumber" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <input asp-for="Account_PhoneNumber" class="form-control" />
+                <span asp-validation-for="Account_PhoneNumber" class="text-danger"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Account_Sex" class="col-md-2 control-label"></label>
+            <div class="col-md-10">
+                <select asp-for="Account_Sex">
+                    <option value="Nam">Nam</option>
+                    <option value="Nữ">Nữ</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="submit" class="btn btn-default">Register</button>
+            </div>
+        </div>
+    </form>
+</div>

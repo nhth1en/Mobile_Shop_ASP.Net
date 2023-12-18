@@ -1,0 +1,175 @@
+﻿/* BEGIN CONTENT HEADER CSS */
+.row {
+    clear: left;
+    height: 40px;
+    line-height: 40px;
+    border-bottom: 1px solid #dddddd;
+    background-color: white;
+}
+
+.row-box {
+    width: 1346px;
+    margin: 0 auto;
+}
+
+    .row-box h5 {
+        background-color: #353b48;
+        color: white;
+        width: 256px;
+        text-align: center;
+        float: left;
+    }
+
+    .row-box span {
+        float: left;
+        margin: 0 10px;
+    }
+
+.content-header {
+    clear: left;
+    width: 1346px;
+    height: 490px;
+    margin: 0 auto;
+    background-color: white;
+}
+
+.menu {
+    float: left;
+    width: 256px;
+    padding: 0 10px;
+}
+
+    .menu li {
+        height: 40px;
+        line-height: 40px;
+        list-style: none;
+        border-bottom: 1px solid #e6e6e6;
+        text-align: center;
+    }
+
+        .menu li:hover img {
+            width: 65%;
+            transition: 0.4s;
+        }
+
+        .menu li img {
+            width: 70%;
+        }
+
+        .menu li a {
+            text-decoration: none;
+            color: #000;
+        }
+
+.banner {
+    float: left;
+    padding: 10px;
+    width: 1090px;
+    height: 480px;
+    border-right: 1px solid #ddd;
+    border-bottom: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+}
+
+    .banner img {
+        width: 100%;
+        height: 460px;
+    }
+/* END CONTENT HEADER CSS */
+
+/* BEGIN PRODUCT CSS */
+.product {
+    clear: left;
+    height: auto;
+    background-color: white;
+    width: 1346px;
+    margin: 10px auto;
+}
+
+.product-brand {
+    width: 100%;
+    height: 40px;
+    padding: 10px;
+    border-bottom: 1px solid black;
+}
+
+    .product-brand h4 {
+        float: left;
+    }
+
+    .product-brand a {
+        float: right;
+        text-decoration: none;
+        color: red;
+    }
+
+        .product-brand a:hover {
+            color: blue;
+        }
+
+.product-row {
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+    
+    .product-row ul {
+        width: 100%;
+    }
+
+    .product-row ul li {
+        list-style: none;
+        float: left;
+        width: 20%;
+        padding: 10px;
+    }
+
+.product-box {
+    height: 330px;
+    border: 1px solid #e6e6e6;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: #fff;
+}
+
+    .product-box a {
+        color: #000;
+        text-decoration: none;
+    }
+
+    .product-box .image {
+        text-align: center;
+        height: 260px;
+    }
+
+        .product-box .image img {
+            width: 100%;
+        }
+
+    .product-box:hover .image img {
+        width: 95%;
+        transition: 0.4s;
+    }
+
+    .product-box h5 {
+        margin-top: 5px;
+    }
+
+    .product-box .price {
+        margin-top: 5px;
+    }
+
+        .product-box .price p {
+            margin-top: 5px;
+            color: red;
+            font-size: 14px;
+        }
+
+            .product-box .price p span {
+                color: #000;
+                font-size: 13px;
+                text-decoration: line-through;
+                margin-left: 10px;
+            }
+/* END CONTENT CSS */

@@ -1,0 +1,60 @@
+﻿body {
+    font-family: 'Roboto', sans-serif;
+    background: #00B4DB; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.login-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: auto;
+}
+
+    .login-box h2 {
+        text-align: center;
+        color: #fff;
+    }
+
+    .login-box form {
+        border-radius: 10px;
+        background-color: #fff;
+        padding: 30px 20px;
+    }
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+    .input-group label {
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #555555;
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    .input-group input {
+        display: block;
+        font-size: 20px;
+        width: 300px;
+        padding: 5px;
+        border: 1px solid #7E7878;
+    }
+
+button {
+    padding: 12px 20px;
+    border: none;
+    outline: none;
+    background-color: #12B351;
+    width: 100%;
+}
+
+    button:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }

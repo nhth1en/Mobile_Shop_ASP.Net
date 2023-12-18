@@ -1,0 +1,102 @@
+﻿@model ShoppingCartViewModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/User/css/ShoppingCart/Index.css" rel="stylesheet" />
+<div class="wrapper">
+    @if (Model.ShoppingCart.ShoppingCartItems.Any())
+    {
+        <div class="checkoutForm">
+            <div class="checkoutForm__header">
+                <h4>GIỎ HÀNG CỦA BẠN (@Model.ShoppingCart.ShoppingCartItems.Count sản phẩm)</h4>
+                <h4><a asp-controller="Home" asp-action="Index">Mua thêm sản phẩm khác</a></h4>
+            </div>  
+            <div class="checkoutForm__body">
+                @foreach (var item in Model.ShoppingCart.ShoppingCartItems)
+                {
+                    <div class="product">
+                        <div class="product__image">
+                            <img src="~/images/products/@item.Product.Product_ImageThumbnail" alt="image" />
+                        </div>
+                        <div class="product__name">
+                            <h4>@item.Product.Product_Name</h4>
+                        </div>
+                        <div class="product__price">
+                            <p>@item.Product.Product_Price.ToString("#,###")</p>
+                        </div>
+                        <div class="product__amount">
+                            <a asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-id="@item.Product.Product_Id">
+                                <i class="fas fa-plus-circle"></i>
+                            </a>
+                            <input type="text" readonly="readonly" value="@item.ShoppingCartItem_Amount" />
+                            <a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-id="@item.Product.Product_Id">
+                                <i class="fas fa-minus-circle"></i>
+                            </a>
+                        </div>
+                        <div class="product__delete">
+                            <a asp-controller="ShoppingCart" asp-action="RemoveProductFromShoppingCart" asp-route-id="@item.Product.Product_Id">
+                                &#x2717;
+                            </a>
+                        </div>
+                    </div>
+                }
+                <div class="totalprice">
+                    <h4 style="margin-right: 30px;">Tổng tiền: </h4>
+                    <p>@Model.ShoppingCartTotal.ToString("#,###") ₫</p>
+                </div>
+            </div>
+            <div class="checkoutForm__footer">
+                <form asp-controller="Order" asp-action="CheckOut" method="post">
+                    <h4 style="padding: 25px 0 0 15px; color: #d0021b;">Thông tin khách hàng</h4>
+                    <table>
+                        <tr>
+                            <td>Họ và tên:</td>
+                            <td><input asp-for="Order_Name" type="text" placeholder="Nhập họ và tên" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ nhận hàng:</td>
+                            <td><input asp-for="Order_Address" type="text" placeholder="Nhập địa chỉ nhận hàng" required /></td>
+                        </tr>
+                        <tr>
+                            <td>Số điện thoại:</td>
+                            <td><input asp-for="Order_PhoneNumber" type="tel" placeholder="Nhập số điện thoại" pattern="[0-9]{10}" maxlength="10" required /></td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Email:
+                                <span style="font-size: 12px; display: block;">(không bắt buộc)</span>
+                            </td>
+                            <td><input asp-for="Order_Email" type="email" placeholder="Nhập email" /></td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td style="font-size: 14px; display: block; margin-top: -5px; font-style: italic;">Chi tiết đơn hàng sẽ được gửi vào email</td>
+                        </tr>
+                    </table>
+                    <h4 style="text-align: center; margin-top: 15px;">Bằng cách đặt hàng, bạn đồng ý với Điều khoản sử dụng của chúng tôi</h4>
+                    <button type="submit">
+                        <strong>THANH TOÁN</strong>
+                        <span>Nhân viên sẽ gọi xác nhận</span>
+                    </button>
+                </form>
+            </div>
+
+            <a asp-controller="ShoppingCart" asp-action="ClearShoppingCart" style="display: inline-block; margin: 10px 0; text-decoration: none; color: red;" onMouseOver="this.style.color='#000'"
+               onMouseOut="this.style.color='#d0021b'">
+                <i class="fas fa-trash"></i>
+                Xoá toàn bộ giỏ hàng
+            </a>
+        </div>
+    }
+    else
+    {
+        <div class="empty-cart">
+            <img src="~/assets/images/null.png" alt="image" />
+            <p>Không có sản phẩm nào trong giỏ hàng của bạn</p>
+            <a asp-controller="Home" asp-action="Index">ĐẾN TRANG CHỦ Mobile Shop</a>
+        </div>
+    }
+</div>
+
+

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Product>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<link href="~/User/css/Search/IndexCSS.css" rel="stylesheet" />
+
+<div class="search-result">
+    <p>
+        <span>
+            Từ khóa: <strong>@ViewBag.keyword</strong>. Tìm thấy: <strong>@ViewBag.result</strong> kết quả.
+        </span>
+    </p>
+    <div class="filter-option">
+        <div class="left">
+            <ul>
+                <li><strong>Chọn mức giá:</strong></li>
+                <li style="@ViewBag.changecss1"><a asp-action="OrderByPriceOption" asp-route-val1="0" asp-route-val2="4000000">Dưới 4 triệu</a></li>
+                <li style="@ViewBag.changecss2"><a asp-action="OrderByPriceOption" asp-route-val1="4000000" asp-route-val2="7000000">4 - 7 triệu</a></li>
+                <li style="@ViewBag.changecss3"><a asp-action="OrderByPriceOption" asp-route-val1="7000000" asp-route-val2="12000000">7- 12 triệu</a></li>
+                <li style="@ViewBag.changecss4"><a asp-action="OrderByPriceOption" asp-route-val1="12000000" asp-route-val2="0">Trên 12 triệu</a></li>
+            </ul>
+        </div>
+        <div class="right">
+            <ul>
+                <li><strong>Sắp xếp theo:</strong></li>
+                <li style="@ViewBag.changecssASC"><a asp-action="OrderByPriceASC">Giá thấp đến cao</a></li>
+                <li style="@ViewBag.changecssDESC"><a asp-action="OrderByPriceDESC">Giá cao đến thấp</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="product">
+    <div class="product-brand">
+        <h4>KẾT QUẢ TÌM KIẾM</h4>
+       
+    </div>
+    <div class="product-row">
+        <ul>
+            @foreach (var p in Model)
+            {
+                <li>
+                    <div class="product-box">
+                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@p.Product_Id">
+                            <div class="image">
+                                <img src="~/images/products/@p.Product_ImageThumbnail" alt="image">
+                            </div>
+                            <h5>@p.Product_Name</h5>
+                            <div class="price">
+                                <p>
+                                    <b>@p.Product_Price.ToString("#,###")₫</b>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>

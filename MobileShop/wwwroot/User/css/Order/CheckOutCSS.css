@@ -1,0 +1,30 @@
+﻿.checkout {
+    width: 1346px;
+    margin: 30px auto;
+    background-color: #fff;
+    text-align: center;
+}
+
+    .checkout img {
+        margin-top: 30px;
+        width: 20%;
+    }
+
+    .checkout p {
+        margin-top: 30px;
+    }
+
+    .checkout a {
+        display: inline-block;
+        margin: 30px;
+        border: 1px solid #34a105;
+        text-decoration: none;
+        padding: 26px 12px;
+        border-radius: 5px;
+        color: #34a105;
+    }
+
+        .checkout a:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }

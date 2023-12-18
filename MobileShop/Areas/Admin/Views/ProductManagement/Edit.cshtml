@@ -1,0 +1,150 @@
+﻿@model Product
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Admin/css/ProductManagement/EditCSS.css" rel="stylesheet" />
+
+<div class="wrapper-content">
+    <form class="form" asp-action="Edit" method="POST" enctype="multipart/form-data">
+        <h2>CHỈNH SỬA SẢN PHẨM</h2>
+        @if (TempData["NotImage"] != null)
+        {
+            <p style="color: red; text-align: center; margin-bottom: 5px;">@TempData["NotImage"]</p>
+        }
+        <div class="input-group">
+            <span asp-for="Product_Name">Tên sản phẩm</span>
+            <input asp-for="Product_Name" type="text" required>
+        </div>
+        <div class="input-box">
+            <div class="input-group">
+                <span asp-for="Category_Id">Loại sản phẩm</span>
+                <select asp-for="Category_Id" style="width: 100%;">
+                    @foreach (var category in ViewBag.categories)
+                    {
+                        <option value="@category.Category_Id">@category.Category_Name</option>
+                    }
+                </select>
+            </div>
+            <div class="input-group">
+                <span asp-for="Product_Price">Giá</span>
+                <input asp-for="Product_Price" type="number" min="0" value="@(Convert.ToDouble(Model.Product_Price))">
+            </div>
+            <div class="input-group">
+                <div class="checkbox-box">
+                    <div class="checkbox-group">
+                        <span asp-for="Product_InStock">Còn hàng</span>
+                        <input asp-for="Product_InStock" type="checkbox" checked>
+                    </div>
+                    <div class="checkbox-group">
+                        <span>/</span>
+                    </div>
+                    <div class="checkbox-group">
+                        <span asp-for="Product_IsPreferred">Ưa thích</span>
+                        <input asp-for="Product_IsPreferred" type="checkbox" >
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="input-group">
+            <span asp-for="Product_ImageThumbnail">
+                Hình ảnh / Thay đổi
+                <input id="Change" type="checkbox" style="display: inline-block;" />
+            </span>
+            <input asp-for="Product_ImageThumbnail" type="file" accept="image/*" disabled>
+        </div>
+        <div class="input-group">
+            <span asp-for="Product_LongDescription">Mô tả</span>
+            <input asp-for="Product_Description" type="text" required>
+        </div>
+        <h3>THÔNG TIN CHI TIẾT SẢN PHẨM</h3>
+        <div class="label-input-box">
+            <p>Hệ điều hành - CPU</p>
+            <div class="label-input">
+                <section>
+                    <label asp-for="Product_OperatingSystem">Hệ điều hành</label>
+                    <input asp-for="Product_OperatingSystem" type="text" required>
+                </section>
+                <section>
+                    <label asp-for="Product_Chipset">Chipset (hãng SX CPU)</label>
+                    <input asp-for="Product_Chipset" type="text" required>
+                </section>
+            </div>
+            <div class="label-input">
+                <section>
+                    <label asp-for="Product_CPUSpeed">Tốc độ CPU</label>
+                    <input asp-for="Product_CPUSpeed" type="text" required>
+                </section>
+                <section>
+                    <label asp-for="Product_GPU">Chip đồ họa (GPU)</label>
+                    <input asp-for="Product_GPU" type="text" required>
+                </section>
+            </div>
+        </div>
+        <div class="label-input-box">
+            <p>Màn hình</p>
+            <div class="label-input">
+                <section>
+                    <label asp-for="Product_ScreenResolution">Độ phân giải</label>
+                    <input asp-for="Product_ScreenResolution" type="text" required>
+                </section>
+                <section>
+                    <label asp-for="Product_ScreenWidth">Màn hình rộng</label>
+                    <input asp-for="Product_ScreenWidth" type="text" required>
+                </section>
+            </div>
+        </div>
+        <div class="label-input-box">
+            <p>Bộ nhớ & Lưu trữ</p>
+            <div class="label-input">
+                <section>
+                    <label asp-for="Product_RAM">RAM</label>
+                    <input asp-for="Product_RAM" type="text" required>
+                </section>
+                <section>
+                    <label asp-for="Product_ROM">Bộ nhớ trong</label>
+                    <input asp-for="Product_ROM" type="text" required>
+                </section>
+            </div>
+            <div class="label-input">
+                <section>
+                    <label asp-for="Product_SDCardSupport">Hỗ trợ thẻ nhớ</label>
+                    <input asp-for="Product_SDCardSupport" type="checkbox">
+                </section>
+                <section>
+                    <label asp-for="Product_SDCard">Thẻ nhớ ngoài</label>
+                    <input asp-for="Product_SDCard" type="text" disabled>
+                </section>
+            </div>
+        </div>
+        <div class="label-input-box">
+            <p>Camera</p>
+            <div class="label-input">
+                <section>
+                    <label asp-for="Product_FrontCamera">Camera trước</label>
+                    <input asp-for="Product_FrontCamera" type="text" required>
+                </section>
+                <section>
+                    <label asp-for="Product_RearCamera">Camera sau</label>
+                    <input asp-for="Product_RearCamera" type="text" required>
+                </section>
+            </div>
+        </div>
+        <div class="btn">
+            <button type="reset" onclick="location.href='../'">HỦY</button>
+            <button type="submit">LƯU LẠI</button>
+        </div>
+    </form>
+</div>
+<script>
+    document.getElementById('Product_SDCardSupport').onchange = function () {
+        document.getElementById('Product_SDCard').disabled = !this.checked;
+        document.getElementById('Product_SDCard').value = '';
+    };
+
+
+    document.getElementById('Change').onchange = function () {
+        document.getElementById('Product_ImageThumbnail').disabled = !this.checked;
+    };
+</script>

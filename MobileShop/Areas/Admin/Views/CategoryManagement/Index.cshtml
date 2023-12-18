@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Category>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Admin/css/CategoryManagement/IndexCSS.css" rel="stylesheet" />
+<div class="wrapper-content">
+    <h2>QUẢN LÝ LOẠI SẢN PHẨM</h2>
+    @if (TempData["CantDelele"] != null)
+    {
+        <p style="color: red; text-align: center; margin-bottom: 5px;">@TempData["CantDelele"]</p>
+    }
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Tên loại sản phẩm</th>
+            <th>Mô tả</th>
+            <th>SL</th>
+            <th>Hành động</th>
+        </tr>
+
+        @{int i = 1, z = 0;}
+        @{
+            int[] q = new int[Model.Count()];
+            foreach (var item in ViewBag.query)
+            {
+                q[z] = item;
+                z++;
+            }
+
+            z = 0;
+            foreach (var category in Model)
+            {
+                <tr>
+                    <td>@i</td>
+                    <td>@category.Category_Name</td>
+                    <td>@category.Category_Description</td>
+
+                    <td>@q[z]</td>
+
+                    <td>
+                        <form asp-action="Edit" asp-route-id="@category.Category_Id" method="GET">
+                            <button type="submit" class="action-edit">
+                                <i class="fas fa-edit"></i>
+                                Sửa
+                            </button>
+                        </form>
+                        <form asp-action="Delete" asp-route-id="@category.Category_Id" method="POST">
+                            <button type="submit" class="action-delete" onclick="return confirm('Bạn có chắc chắn muốn xóa loại sản phẩm này ?');">
+                                <i class="fas fa-trash-alt"></i>
+                                Xóa
+                            </button>
+                        </form>
+                    </td>
+                </tr>
+                i++;
+                z++;
+            }
+        }
+
+    </table>
+</div>
+
+
+
+

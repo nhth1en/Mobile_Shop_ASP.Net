@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "PreferredProducts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/User/css/Product/PreferredProductsCSS.css" rel="stylesheet" />
+<div class="wrap">
+    <div class="menu">
+        <h4><i class="fas fa-list"></i> Danh mục sản phẩm</h4>
+        <ul>
+            @foreach (var c in Model.Categories)
+            {
+                <li><a asp-controller="ProductByCategory" asp-action="Index" asp-route-id="@c.Category_Id">@c.Category_Name</a></li>
+            }
+        </ul>
+    </div>
+</div>
+
+<div class="product">
+    <div class="product-brand">
+        <h4>ĐIỆN THOẠI YÊU THÍCH</h4>
+    </div>
+    <div class="product-row">
+        <ul>
+            @foreach (var p in Model.Products)
+            {
+                <li>
+                    <div class="product-box">
+                        <a asp-controller="Product" asp-action="Detail" asp-route-id="@p.Product_Id">
+                            <div class="image">
+                                <img src="~/images/products/@p.Product_ImageThumbnail" alt="image">
+                            </div>
+                            <h5>@p.Product_Name</h5>
+                            <div class="price">
+                                <p>
+                                    <b>@p.Product_Price.ToString("#,###")₫</b>
+                                </p>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
+
+
+
+
+
+

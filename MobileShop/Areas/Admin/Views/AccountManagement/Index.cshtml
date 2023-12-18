@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Account>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Admin/css/AccountManagement/IndexCSS.css" rel="stylesheet" />
+<div class="wrapper-content">
+    <h2>QUẢN LÝ NGƯỜI DÙNG</h2>
+    @if (TempData["CantBlock"] != null)
+    {
+        <p style="color: red; text-align: center; margin-bottom: 5px;">@TempData["CantBlock"]</p>
+    }
+    @if (TempData["ChangePasswordSuccess"] != null)
+    {
+        <p style="color: green; text-align: center; margin-bottom: 5px;">@TempData["ChangePasswordSuccess"]</p>
+    }
+    @if (TempData["BlockSuccess"] != null)
+    {
+        <p style="color: green; text-align: center; margin-bottom: 5px;">@TempData["BlockSuccess"]</p>
+    }
+    @if (TempData["UnblockSuccess"] != null)
+    {
+        <p style="color: green; text-align: center; margin-bottom: 5px;">@TempData["UnblockSuccess"]</p>
+    }
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Họ tên</th>
+            <th>Email</th>
+            <th>Số điện thoại</th>
+            <th>Giới tính</th>
+            <th>Quyền</th>
+            <th>Hành động</th>
+        </tr>
+        @{int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.Account_FullName</td>
+                <td>@item.Account_Email</td>
+                <td>@item.Account_PhoneNumber</td>
+                <td>@item.Account_Sex</td>
+                <td>
+                    @if (item.Account_Permission == "Admin")
+                    {
+                        <span style="background-color: #28a745;">@item.Account_Permission</span>
+                        if (item.Account_IsBlocked == false)
+                        {
+                            <span style="background-color: #138496;">Hoạt động</span>
+                        }
+                        else
+                        {
+                            <span style="background-color: #c82333;">Bị khóa</span>
+                        }
+                    }
+                    else
+                    {
+                        <span style="background-color: #007bff;">@item.Account_Permission</span>
+                        if (item.Account_IsBlocked == false)
+                        {
+                            <span style="background-color: #138496;">Hoạt động</span>
+                        }
+                        else
+                        {
+                            <span style="background-color: #c82333;">Bị khóa</span>
+                        }
+                    }
+                </td>
+                <td>
+                    <form asp-action="ChangePassword" asp-route-id="@item.Account_Id" method="GET">
+                        <button class="action-reset" type="submit">
+                            <i class="fas fa-redo"></i>
+                            Đổi mật khẩu
+                        </button>
+                    </form>
+                    @if (item.Account_IsBlocked == false)
+                    {
+                        <form asp-action="Block" asp-route-id="@item.Account_Id" method="POST">
+                            <button class="action-block" type="submit" onclick="return confirm('Bạn có chắc muốn khóa tài khoản này?');">
+                                <i class="fas fa-user-lock"></i>
+                                Khóa tài khoản
+                            </button>
+                        </form>
+                    }
+                    else
+                    {
+                        <form asp-action="Unblock" asp-route-id="@item.Account_Id" method="POST">
+                            <button class="action-unblock" type="submit" onclick="return confirm('Bạn có chắc muốn mở khóa tài khoản này?');">
+                                <i class="fas fa-unlock-alt"></i>
+                                Mở tài khoản
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+            i++;
+        }
+
+    </table>
+</div>
+
+

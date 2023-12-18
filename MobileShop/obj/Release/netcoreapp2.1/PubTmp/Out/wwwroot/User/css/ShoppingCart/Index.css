@@ -1,0 +1,193 @@
+﻿.wrapper {
+    width: 1346px;
+    margin: 0 auto;
+    background-color: #f5f5f5;
+}
+
+.checkoutForm {
+    width: 700px;
+    margin: 0 auto;
+}
+
+.checkoutForm__header {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+    .checkoutForm__header h4:first-child {
+        text-align: left;
+        color: #3d3d3d;
+        font-weight: 400;
+    }
+
+    .checkoutForm__header h4:last-child a {
+        color: #337ab7;
+        font-weight: 400;
+        text-decoration: none;
+    }
+
+        .checkoutForm__header h4:last-child a:hover {
+            color: #000;
+        }
+
+.checkoutForm .checkoutForm__body {
+    margin-top: 15px;
+    background-color: #fff;
+}
+
+.checkoutForm__body .product {
+    clear: both;
+    display: table;
+    width: 100%;
+    padding: 15px;
+    border-bottom: 1px solid #ccc;
+}
+
+    .checkoutForm__body .product:last-child {
+        border-bottom: none;
+    }
+
+    .checkoutForm__body .product .product__image {
+        display: table-cell;
+        width: 100px;
+        border: 1px solid #ddd;
+        text-align: center;
+        padding: 5px;
+    }
+
+        .checkoutForm__body .product .product__image img {
+            width: 90px;
+        }
+
+    .checkoutForm__body .product .product__name {
+        display: table-cell;
+        vertical-align: top;
+        padding-left: 20px;
+        width: 180px;
+        word-break: break-all;
+    }
+
+    .checkoutForm__body .product .product__price {
+        display: table-cell;
+        vertical-align: top;
+        padding-left: 20px;
+        width: 120px;
+    }
+
+    .checkoutForm__body .product .product__amount {
+        display: table-cell;
+        vertical-align: top;
+        padding-left: 20px;
+        width: 120px;
+    }
+
+        .checkoutForm__body .product .product__amount input {
+            width: 50px;
+            text-align: center;
+        }
+
+        .checkoutForm__body .product .product__amount a {
+            text-decoration: none;
+            color: #000;
+        }
+
+.checkoutForm__body .totalprice {
+    padding: 15px;
+    width: 100%;
+    text-align: right;
+    border-bottom: 1px solid #ccc;
+}
+
+    .checkoutForm__body .totalprice h4 {
+        font-weight: bold;
+        font-size: 16px;
+        display: inline-block;
+    }
+
+    .checkoutForm__body .totalprice p {
+        font-weight: bold;
+        font-size: 16px;
+        color: #d0021b;
+        display: inline-block;
+    }
+
+.checkoutForm__footer {
+    background-color: #fff;
+}
+
+    .checkoutForm__footer table {
+        width: 100%;
+        padding: 15px;
+        border-bottom: 1px solid #ccc;
+    }
+
+        .checkoutForm__footer table tr td {
+            padding: 5px 0;
+        }
+
+            .checkoutForm__footer table tr td:first-child {
+                width: 200px;
+            }
+
+            .checkoutForm__footer table tr td input {
+                width: 100%;
+                height: 28px;
+                padding: 5px;
+            }
+
+    .checkoutForm__footer button {
+        margin: 15px 0 20px 430px;
+        width: 250px;
+        height: 60px;
+        background-color: #d0021b;
+        border-color: #d0021b;
+        color: #fff;
+    }
+
+        .checkoutForm__footer button:hover {
+            cursor: pointer;
+            opacity: 0.8;
+        }
+
+        .checkoutForm__footer button strong {
+            display: block;
+            font-size: 16px;
+        }
+
+        .checkoutForm__footer button span {
+            display: block;
+            font-size: 12px;
+            margin-top: 3px;
+        }
+
+
+.empty-cart {
+    width: 1346px;
+    margin: 30px auto;
+    background-color: #fff;
+    text-align: center;
+}
+
+    .empty-cart img {
+        margin-top: 30px;
+    }
+
+    .empty-cart p {
+        margin-top: 30px;
+    }
+
+    .empty-cart a {
+        display: inline-block;
+        margin: 30px;
+        border: 1px solid #34a105;
+        text-decoration: none;
+        padding: 26px 12px;
+        border-radius: 5px;
+        color: #34a105;
+    }
+
+    .empty-cart a:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }

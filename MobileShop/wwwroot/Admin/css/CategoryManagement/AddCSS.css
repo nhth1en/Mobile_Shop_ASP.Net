@@ -1,0 +1,73 @@
+﻿/* BEGIN WRAPPER-CONTENT CSS */
+.wrapper-content {
+    position: absolute;
+    background-color: #fff;
+    height: calc(100vh - 70px);
+    width: 1112px;
+    margin: 70px 0 0 234px;
+    overflow-y: scroll;
+}
+
+    .wrapper-content h2 {
+        text-align: center;
+        padding: 30px 0;
+    }
+
+.form {
+    width: 900px;
+    margin: 0 auto;
+}
+
+.input-group {
+    width: 100%;
+    background-color: #f7f7f7;
+    border-radius: 10px;
+    border: 1px solid #e6e6e6;
+    padding: 10px 30px 9px 22px;
+    margin-bottom: 20px;
+}
+
+    .input-group span {
+        text-transform: uppercase;
+        font-size: 12px;
+        color: #555555;
+    }
+
+    .input-group input {
+        display: block;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        outline: none;
+        font-size: 18px;
+        margin-top: 10px;
+    }
+
+.btn {
+    display: grid;
+    grid-template-columns: 400px 400px;
+    grid-column-gap: 100px;
+}
+
+    .btn button {
+        width: 100%;
+        padding: 20px 0px;
+        border-radius: 25px;
+        border: none;
+        outline: none;
+        color: white;
+        font-weight: bold;
+    }
+
+        .btn button[type="submit"] {
+            background-color: #00ad5f;
+        }
+
+        .btn button[type="reset"] {
+            background-color: #D25252;
+        }
+
+button:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}

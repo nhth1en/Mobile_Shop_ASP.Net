@@ -1,0 +1,128 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Detail";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+<link href="~/Admin/css/ProductManagement/DetailCSS.css" rel="stylesheet" />
+<div class="wrapper-content">
+    <h2>CHI TIẾT SẢN PHẨM</h2>
+    <div class="box">
+        <div class="box__detail">
+            <img src="~/images/products/@Model.Product_ImageThumbnail" alt="img" style="width: 250px;" />
+        </div>
+        <div class="box__detail">
+            <table>
+                <tr>
+                    <td style="font-weight: bold;">Tên sản phẩm:</td>
+                    <td>@Model.Product_Name</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Giá:</td>
+                    <td>@Model.Product_Price.ToString("#,###")</td>
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Trạng thái:</td>
+                    @if (@Model.Product_InStock == true)
+                    {
+                        <td>Còn hàng</td>
+                    }
+                    else
+                    {
+                        <td>Hết hàng</td>
+                    }
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Yêu thích:</td>
+                    @if (@Model.Product_IsPreferred == true)
+                    {
+                        <td><i class="fas fa-check"></i></td>
+                    }
+                    else
+                    {
+                        <td>&nbsp;</td>
+                    }
+                </tr>
+                <tr>
+                    <td style="font-weight: bold;">Lượt mua:</td>
+                    <td>@Model.Product_Purchased</td>
+                </tr>
+            </table>
+            <a asp-action="Edit" style="display:block; margin-top: 20px; font-size: 18px; text-decoration: none;">Chỉnh sửa sản phẩm này</a>
+        </div>
+        <div class="box__detail">
+            <table>
+                <tr>
+                    <th class="product-info__label" colspan="2">Hệ điều hành - CPU</th>
+                </tr>
+                <tr>
+                    <td>Hệ điều hành:</td>
+                    <td>@Model.Product_OperatingSystem</td>
+                </tr>
+                <tr>
+                    <td>Chipset(Hãng SX CPU):</td>
+                    <td>@Model.Product_Chipset</td>
+                </tr>
+                <tr>
+                    <td>Tốc độ CPU:</td>
+                    <td>@Model.Product_CPUSpeed</td>
+                </tr>
+                <tr>
+                    <td>Chip đồ họa (GPU):</td>
+                    <td>@Model.Product_GPU</td>
+                </tr>
+                <tr>
+                    <th class="product-info__label" colspan="2">Màn hình</th>
+                </tr>
+                <tr>
+                    <td>Độ phân giải:</td>
+                    <td>@Model.Product_ScreenResolution</td>
+                </tr>
+                <tr>
+                    <td>Màn hình rộng:</td>
+                    <td>@Model.Product_ScreenWidth</td>
+                </tr>
+                <tr>
+                    <th class="product-info__label" colspan="2">Bộ nhớ & lưu trữ</th>
+                </tr>
+                <tr>
+                    <td>RAM:</td>
+                    <td>@Model.Product_RAM</td>
+                </tr>
+                <tr>
+                    <td>Bộ nhớ trong:</td>
+                    <td>@Model.Product_ROM</td>
+                </tr>
+                <tr>
+                    <td>Hỗ trợ thẻ nhớ:</td>
+                    @if (Model.Product_SDCardSupport == true)
+                    {
+                        <td>Có</td>
+                    }
+                    else
+                    {
+                        <td>Không</td>
+                    }
+                </tr>
+                <tr>
+                    <td>Thẻ nhớ ngoài:</td>
+                    <td>@Model.Product_SDCard</td>
+                </tr>
+                <tr>
+                    <th class="product-info__label" colspan="2">Camera</th>
+                </tr>
+                <tr>
+                    <td>Camera trước:</td>
+                    <td>@Model.Product_FrontCamera</td>
+                </tr>
+                <tr>
+                    <td>Camera sau:</td>
+                    <td>@Model.Product_RearCamera</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <a asp-action="Index" class="back">
+        <i class="fas fa-arrow-left"></i>
+        Quay lại
+    </a>
+</div>

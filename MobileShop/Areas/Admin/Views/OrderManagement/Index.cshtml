@@ -1,0 +1,65 @@
+﻿@model PagedList.Core.IPagedList<Order>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+<link href="~/Admin/css/OrderManagement/IndexCSS.css" rel="stylesheet" />
+<div class="wrapper-content">
+    <h2>QUẢN LÝ ĐƠN HÀNG</h2>
+    @if (TempData["CompleteSuccess"] != null)
+    {
+        <p style="text-align: center; color: green; margin-bottom: 5px;">@TempData["CompleteSuccess"]</p>
+    }
+    @if (TempData["InCompleteSuccess"] != null)
+    {
+        <p style="text-align: center; color: green; margin-bottom: 5px;">@TempData["InCompleteSuccess"]</p>
+    }
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Ngày đặt</th>
+            <th>Mã đơn hàng</th>
+            <th>Tổng tiền</th>
+            <th>Trạng thái</th>
+            <th>Hành động</th>
+        </tr>
+        @{int i = 1;}
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@i</td>
+                <td>@item.Order_Placed</td>
+                <td>@item.Order_Id</td>
+                <td>@item.Order_Total.ToString("#,###")</td>
+                @if (item.IsCompleted == true)
+                {
+                    <td style="color: green;">Hoàn thành</td>
+                }
+                else
+                {
+                    <td style="color: red; font-weight: bold;">Chưa hoàn thành</td>
+                }
+                <td>
+                    <form asp-action="Detail" asp-route-id="@item.Order_Id" method="GET">
+                        <button class="action-detail" type="submit">
+                            <i class="fas fa-info-circle"></i>
+                            Chi tiết
+                        </button>
+                    </form>
+                    @if (item.IsCompleted == false)
+                    {
+                        <form asp-action="Complete" asp-route-id="@item.Order_Id" method="POST">
+                            <button class="action-complete" type="submit" onclick="return confirm('Bạn có chắc muốn hoàn thành đơn hàng này?');">
+                                <i class="fas fa-check-double"></i>
+                                Hoàn thành
+                            </button>
+                        </form>
+                    }
+                </td>
+            </tr>
+            i++;
+        }
+    </table>
+    <pager list="@Model" asp-controller="OrderManagement" asp-action="Index" />
+</div>

@@ -1,0 +1,82 @@
+﻿/* BEGIN WRAPPER-CONTENT CSS */
+.wrapper-content {
+    position: absolute;
+    background-color: #fff;
+    height: calc(100vh - 70px);
+    width: 1112px;
+    margin: 70px 0 0 234px;
+    overflow-y: scroll;
+}
+
+    .wrapper-content h2 {
+        text-align: center;
+        padding: 30px 0;
+    }
+
+    .wrapper-content table {
+        width: 900px;
+        margin: 0 auto;
+        text-align: center;
+        border-collapse: collapse;
+        flex: 1;
+        display: grid;
+    }
+
+    .wrapper-content table, th, td {
+        border: 1px solid #000;
+    }
+
+    .wrapper-content tr {
+        display: grid;
+        grid-template-columns: 50px 250px 400px 198px;
+    }
+
+        .wrapper-content tr:nth-child(2n+1) {
+            background-color: #e5e6e7;
+        }
+
+    .wrapper-content table th {
+        background-color: #3498db;
+        color: #000;
+        padding: 15px;
+    }
+
+    .wrapper-content table td {
+        padding: 15px;
+        overflow: hidden;
+    }
+
+    .wrapper-content table td:last-child {
+        /*display: grid;
+        grid-template-columns: auto auto;*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+        .wrapper-content table td button {
+            text-decoration: none;
+            color: #fff;
+            padding: 5px 12px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+            margin: 0 5px;
+        }
+
+        .wrapper-content table td .action-edit {
+            background-color: #1f72ab;
+        }
+
+    .wrapper-content table tr td .action-delete {
+        background-color: #dc3545;
+    }
+
+    .wrapper-content table tr td button:hover {
+        opacity: 0.8;
+        cursor: pointer;
+    }
+
+
+
+/* END WRAPPER-CONTENT CSS */
